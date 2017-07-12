@@ -1,0 +1,40 @@
+doctype html
+html
+	head
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+	body(style= "text-align: center")
+		br
+		h1 Such cute cats, many wow
+		div#thumbnails(style="width: 100%")
+			img#cat1(src="img/thumbnails/cat2_thumb.jpg" style="margin: 25px 50px 25px 50px")
+			img#cat2(src="img/thumbnails/cat4_thumb.jpg" style="margin: 25px 50px 25px 50px")
+			img#cat3(src="img/thumbnails/cat7_thumb.jpg" style="margin: 25px 50px 25px 50px")
+			img#cat4(src="img/thumbnails/cat8_thumb.jpg" style="margin: 25px 50px 25px 50px")
+		div#bigcat(style="width: 800px; height: 600px; margin: 0 auto")
+		script.
+			$(document).ready(function() {
+				$("#cat1").click(function() {
+					$.get("/getImage", function (res) {
+						var source = res.src[0]
+						$("#bigcat").html("<img src='" + source + "' />");
+					});
+				});
+				$("#cat2").click(function() {
+					$.get("/getImage", function (res) {
+						var source = res.src[1]
+						$("#bigcat").html("<img src='" + source + "' />");
+					});
+				});
+				$("#cat3").click(function() {
+					$.get("/getImage", function (res) {
+						var source = res.src[2]
+						$("#bigcat").html("<img src='" + source + "' />");
+					});
+				});
+				$("#cat4").click(function() {
+					$.get("/getImage", function (res) {
+						var source = res.src[3]
+						$("#bigcat").html("<img src='" + source + "' />");
+					});
+				});
+			});
