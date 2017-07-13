@@ -10,7 +10,18 @@ html
 			img#cat2(src="img/thumbnails/cat4_thumb.jpg" style="margin: 25px 50px 25px 50px")
 			img#cat3(src="img/thumbnails/cat7_thumb.jpg" style="margin: 25px 50px 25px 50px")
 			img#cat4(src="img/thumbnails/cat8_thumb.jpg" style="margin: 25px 50px 25px 50px")
-		div#bigcat(style="width: 800px; height: 600px; margin: 0 auto")
+		div
+			button#likeCat1(style= "margin: 25px 50px 25px 50px") Cute cat 1 is cute
+			button#likeCat2(style= "margin: 25px 50px 25px 50px") Cute cat 2 is cute
+			button#likeCat3(style= "margin: 25px 50px 25px 50px") Cute cat 3 is cute
+			button#likeCat4(style= "margin: 25px 50px 25px 50px") Cute cat 4 is cute
+		div
+			p#cutecats1(style= "display: inline-block; margin: 25px") people think that cat1 is cute
+			p#cutecats2(style= "display: inline-block; margin: 25px") people think that cat2 is cute
+			p#cutecats3(style= "display: inline-block; margin: 25px") people think that cat3 is cute
+			p#cutecats4(style= "display: inline-block; margin: 25px") people think that cat4 is cute
+		div#bigcat(style="width: 800px; height: 600px; margin: 0 auto; border: 1px dotted black")
+			p Click on the thumbnails above to see a full size version
 		script.
 			$(document).ready(function() {
 				$("#cat1").click(function() {
@@ -35,6 +46,42 @@ html
 					$.get("/getImage", function (res) {
 						var source = res.src[3]
 						$("#bigcat").html("<img src='" + source + "' />");
+					});
+				});
+				$("#likeCat1").click(function() {
+					var catnr = {
+						nr: 1
+					};
+
+					$.post("/like", catnr, function(res) {
+						$('#cutecats1').html('<p> ' + res.likes + ' people think that cat1 is cute </p>');
+					});
+				});
+				$("#likeCat2").click(function() {
+					var catnr = {
+						nr: 2
+					};
+
+					$.post("/like", catnr, function(res) {
+						$('#cutecats2').html('<p> ' + res.likes + ' people think that cat2 is cute </p>');
+					});
+				});
+				$("#likeCat3").click(function() {
+					var catnr = {
+						nr: 3
+					};
+
+					$.post("/like", catnr, function(res) {
+						$('#cutecats3').html('<p> ' + res.likes + ' people think that cat3 is cute </p>');
+					});
+				});
+				$("#likeCat4").click(function() {
+					var catnr = {
+						nr: 4
+					};
+
+					$.post("/like", catnr, function(res) {
+						$('#cutecats4').html('<p> ' + res.likes + ' people think that cat4 is cute </p>');
 					});
 				});
 			});
