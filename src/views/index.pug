@@ -2,26 +2,28 @@ doctype html
 html
 	head
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-	body(style= "text-align: center")
+		link(rel='stylesheet', href='/styles/main.css', type='text/css')
+		link(href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet")
+	body
 		br
-		h1 Such cute cats, many wow
-		div#thumbnails(style="width: 100%")
-			img#cat1(src="img/thumbnails/cat2_thumb.jpg" style="margin: 25px 50px 25px 50px")
-			img#cat2(src="img/thumbnails/cat4_thumb.jpg" style="margin: 25px 50px 25px 50px")
-			img#cat3(src="img/thumbnails/cat7_thumb.jpg" style="margin: 25px 50px 25px 50px")
-			img#cat4(src="img/thumbnails/cat8_thumb.jpg" style="margin: 25px 50px 25px 50px")
+		h1 Such kawaii, many wow
+		div#thumbnails
+			img#cat1(src="img/thumbnails/cat2_thumb.jpg")
+			img#cat2(src="img/thumbnails/cat4_thumb.jpg")
+			img#cat3(src="img/thumbnails/cat7_thumb.jpg")
+			img#cat4(src="img/thumbnails/cat8_thumb.jpg")
 		div
-			button#likeCat1(style= "margin: 25px 50px 25px 50px") Cute cat 1 is cute
-			button#likeCat2(style= "margin: 25px 50px 25px 50px") Cute cat 2 is cute
-			button#likeCat3(style= "margin: 25px 50px 25px 50px") Cute cat 3 is cute
-			button#likeCat4(style= "margin: 25px 50px 25px 50px") Cute cat 4 is cute
+			button#likeCat1 Cat 1 is kawaii
+			button#likeCat2 Cat 2 is kawaii
+			button#likeCat3 Cat 3 is kawaii
+			button#likeCat4 Cat 4 is kawaii
 		div
-			p#cutecats1(style= "display: inline-block; margin: 25px") people think that cat1 is cute
-			p#cutecats2(style= "display: inline-block; margin: 25px") people think that cat2 is cute
-			p#cutecats3(style= "display: inline-block; margin: 25px") people think that cat3 is cute
-			p#cutecats4(style= "display: inline-block; margin: 25px") people think that cat4 is cute
-		div#bigcat(style="width: 800px; height: 600px; margin: 0 auto; border: 1px dotted black")
-			p Click on the thumbnails above to see a full size version
+			p#cutecats1 people think that cat1 is kawaii
+			p#cutecats2 people think that cat2 is kawaii
+			p#cutecats3 people think that cat3 is kawaii
+			p#cutecats4 people think that cat4 is kawaii
+		div#bigcat
+			p Click on the thumbnails above to create a cat-request huehue
 		script.
 			$(document).ready(function() {
 				$("#cat1").click(function() {
@@ -54,7 +56,7 @@ html
 					};
 
 					$.post("/like", catnr, function(res) {
-						$('#cutecats1').html('<p> ' + res.likes + ' people think that cat1 is cute </p>');
+						$('#cutecats1').html('<p> ' + res.likes + ' people think that cat1 is kawaii </p>');
 					});
 				});
 				$("#likeCat2").click(function() {
@@ -63,7 +65,7 @@ html
 					};
 
 					$.post("/like", catnr, function(res) {
-						$('#cutecats2').html('<p> ' + res.likes + ' people think that cat2 is cute </p>');
+						$('#cutecats2').html('<p> ' + res.likes + ' people think that cat2 is kawaii </p>');
 					});
 				});
 				$("#likeCat3").click(function() {
@@ -72,7 +74,7 @@ html
 					};
 
 					$.post("/like", catnr, function(res) {
-						$('#cutecats3').html('<p> ' + res.likes + ' people think that cat3 is cute </p>');
+						$('#cutecats3').html('<p> ' + res.likes + ' people think that cat3 is kawaii </p>');
 					});
 				});
 				$("#likeCat4").click(function() {
@@ -81,7 +83,7 @@ html
 					};
 
 					$.post("/like", catnr, function(res) {
-						$('#cutecats4').html('<p> ' + res.likes + ' people think that cat4 is cute </p>');
+						$('#cutecats4').html('<p> ' + res.likes + ' people think that cat4 is kawaii </p>');
 					});
 				});
 			});
